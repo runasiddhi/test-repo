@@ -20,16 +20,25 @@ class TestController extends Controller {
 
 	    $member_repository = $this->factory->get_member_repository();
 
-    	$member_id = $member_repository->create(
+    	/*$member_id = $member_repository->create(
 		        \AcademyHQ\API\ValueObjects\Name::fromNative("Sajana", "Maharjan"),
 		        new \AcademyHQ\API\ValueObjects\Username("sajana"),
 		        new \AcademyHQ\API\ValueObjects\Email("sajana@xyz.com"),
 		        new \AcademyHQ\API\ValueObjects\Password("sajana")
-		    );
+		    );*/
 
-    	$member = $member_repository->get(new \AcademyHQ\API\ValueObjects\MemberID($member_id));
+    	$member = $member_repository->get(new \AcademyHQ\API\ValueObjects\MemberID(321710));
 
     	echo "Member '".$member->first_name." ".$member->last_name."' has been created";
+	}
+
+	public function get_member() {
+
+		$member_repository = $this->factory->get_member_repository();
+
+		$member = $member_repository->get(new \AcademyHQ\API\ValueObjects\MemberID(321710));
+
+    	echo $member->first_name." ".$member->last_name;
 	}
 
 	public function create_enrolment() {

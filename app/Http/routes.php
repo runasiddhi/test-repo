@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('member/create', 'TestController@create_member');
+Route::get('member/get', 'TestController@get_member');
 Route::get('enrolment/create', 'TestController@create_enrolment');
 
 /*
